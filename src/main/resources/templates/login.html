@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/login/form}" th:align="center" method="post">
+    username:<input th:type="text" name="username"><br>
+    password:<input th:type="text" name="password"><br>
+    <button>提交</button>
+</form>
+
+<form th:action="@{/logout}" th:align="center" method="post">
+    <button>logout</button>
+</form>
+
+<div th:align="center">
+    <a th:href="@{/oauth2/authorization/gitee}">gitee</a>
+</div>
+</body>
+</html>

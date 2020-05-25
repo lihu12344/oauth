@@ -1,0 +1,56 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: 09264efde666c16a15dd
+            client-secret: 19caea593ffe630c9226d47ed486b41364564491
+          gitee:
+            provider: gitee
+            client-id: d04472ae895453bd8ab834047831fde30fef152b6587842f8f4d00a6eb71e339
+            client-secret: b44819fc4376429c3640efaaf394c33d05a19384b3848842ae5cbc4b8a5d78e9
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/gitee"
+            client-name: gitee
+            scope: user_info
+          weibo:
+            provider: weibo
+            client-id: 1277267174
+            client-secret: 6eaa3ee5e1060202db8dfaf36c8f1cd3
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/weibo"
+            client-name: weibo
+            client-authentication-method: post
+            scope: follow_app_official_microblog
+          alipay:
+            provider: alipay
+            client-id: alipay
+            client-secret: alipay
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/{action}/oauth2/code/alipay"
+            scope: auth_user
+        provider:
+          gitee:
+            authorization-uri: https://gitee.com/oauth/authorize
+            token-uri: https://gitee.com/oauth/token
+            user-info-uri: https://gitee.com/api/v5/user
+          weibo:
+            authorization-uri: https://api.weibo.com/oauth2/authorize
+            token-uri: https://api.weibo.com/oauth2/access_token
+            user-info-uri: https://api.weibo.com/2/users/show.json
+          alipay:
+            authorization-uri: https://openauth.alipaydev.com/oauth2/publicAppAuthorize.htm?app_id=2016102100733336
+            token-uri: alipay
+            user-info-uri: alipay
+
+
+
+alipay:
+  appid: 2016102100733336
+  gatewayUrl: https://openapi.alipaydev.com/gateway.do
+  format: json
+  charset: utf-8
+  signType: RSA2
+  app-private-key: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDjwdlzclLbTeii8NErD3I1z6puq07STpPPKK4mPbRKKgJ4JD+4DAr4DiKxIqC/kdX1jnm+1KvfwMivj+jUuPPBz/ktfZ98cnW/IJbi9b7+H+li7ykFWkXrITKLCy0M2e+U2eVoMm6122nQm0Tl0RUwjDm6V1AOWnjKE3VCqD9Ldjn4sslQgyuSIze2WmfEhnUQXH3E4khoCf7SW4UV1DBwA7/kTDaFh/jlhAgScvdx6/oharwYL9XDIbPjGMi0CPk/xgTzQV+jdkOsEH8y/kiQYk4GxOaWT8QvVGMHfDRgpmYZgnVSNXNg/Q62PQJuQeINk4ELWMKfrM/tlM1uAo77AgMBAAECggEBAKUej+DTvGBD/mnK/0ohm6KJmL09MxrjXuOsUX1l9MRj6oBhf1SWXolx7hLP0Qyx1RV+oqMIGkdQw+4L/jfiks4rUjJ5xdt6PAVBwkJu+XXReumADBRWWyRZYARQKOwNQFWBF4FQNtVfajqTpwKab6tPrjZ7QI33Z2TRcIzP33t7r7z3Xh31CMp76fNv/++OG54BgLtzAdoNS9uDQkBrQ/lcA1UXiJ5u0SVYP+Q/suX/xQjmyA8En77C/r19JkTWiYocdGdnD6B/sHJTFzD4qGjZNjm99CpG2vnMI/TWj6HyQBXUmPMki467gTpAJ6X0QYpd/JVz9uXM/qRnr6IJs7ECgYEA+feCOx7Sc3aqhCoLkqai4qZModUxYVhDT6UVMo5U1q/37kUvGXBC0brWePc3Bk40WErYZMXRxufcGt/KgG7XUV/PEd7Y2AHYbpRwl9p8Kuyk1EXmPyfpOb30tpCT2sdc9fIYkgoXmjTUaRgZpaF4cunlpJv04I0pjhX2FWnWeFkCgYEA6UEcwQy3kDN0fxKM2gs1YeOt4Tjgq8QxRSnikJnMNrKoNQjyDeT9xmndxQFXdSnNWdyV7KEyD5e1L5Pz3hrv2wDkB4yr3Qy06jUw6dyRpbdX/gNKwmQ9Ga9H/Ud5afhdN59lMjC64hfxUrxGy2YY9VW8d9xAcb/9nyTjNJlel3MCgYAzY0e5obeAFzgs3XvtlSZNVATTDEIPkhacbAK0lwAn9psQt9Zb83E5LqDi02fTewZV1GUyKlza+FWOjM1To/XN+9VVBiwsFA0LhqazAS6foHCuVwRjnW/b+Aoz8fsDchLRWQjmFP8PK6czR8oV++EINr+IHKu18i9Fz4v8kPqPWQKBgDM3Ps8MscmR4sR8GD1QNLp3uZg4WuycOY1MMxk5C+P+unxaqHtwimBkonM9Ziytrw9KJgk9I7bUws3dmLBuDbhyq58Uvi/dOGQspb7T1Y8jgMifhGzGgbwABriQVxJznFQ4RYoNtRsr0qst+AV1N4m295kB3YyccV3eRZ0pB+INAoGASLvThRNFpWmidYHxM3H1U74tkNkIjvmK3jYRUUSTfQURmaaza75cjqzt9aUvl2QdWN9alB3tUec/pEdJ5DZvM//+2D18VcaMdrcE3Aaww7Qj99s24biBzDeQAo4IZjMrHorSEZUbUBpUvXYKPjpZcPOX+UQwt5izry3OJQ4ll/k=
+  alipay-public-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgEtK/ZVcHGDuDQ/cYbh/czEJx3oVUGioRJ+NiP55RKJi8JgXXR/e0ESyRrQxTXXIW0qL1pGPFttGnm1NxR4Q5M+6TFXDBQGqEdpiBAH53bwZWYdN7Jpib8UlDpD+ztybPn8OwpebXVtgzeWzGGTpLvi5WHvLO+fNTPcLeWjs/RKF93E7jPf+/Qp4fNg7uWOgNjiW4e0ndLyfFvsQnzpSL2QkgKWHqL6myb7gFnVpuVNtR8efuoMssRgmlpQ3jqSw+NFbqY26q/pOycpYbcCPnZbVAOnwxMuQ9gqP+qqSzUoLnFSnTQbYlVBZ05HgW0y0RVzzsbozP4EjNssKh2ueawIDAQAB
